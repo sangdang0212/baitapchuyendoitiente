@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Amount</th>
+        <th>From Currency</th>
+        <th>To Currency</th>
+    </tr>
+    <tr>
+        <td><input type="text" id="Amount"></td>
+        <td>
+            <select id="from">
+                <option value="VND">VND</option>
+                <option value="USD">USD</option>
+            </select>
+        </td>
+        <td>
+            <select id="to">
+                <option value="VND">VND</option>
+                <option value="USD">USD</option>
+            </select>
+        </td>
+        <td><button onclick="doitien()">Convert</button> </td>
+    </tr>
+</table>
+<br/>
+<p id="Result">0</p>
+<script>
+function doitien() {
+    let amount = document.getElementById("Amount").value;
+    let fromCurrency = document.getElementById("from").value;
+    let toCurrency = document.getElementById("to").value;
+    let Result=document.getElementById("Result").value;
+    if (fromCurrency == "VND" && toCurrency == "USD") {
+        Result = "Result:" + (amount / 23000) + "USD";
+    }
+    if (fromCurrency == "USD" && toCurrency == "VND") {
+        Result = "Result:" + (amount * 23000) + "VND";
+    }
+    if (fromCurrency == toCurrency) {
+        Result = "Result:" + amount;
+    }
+
+    document.getElementById("Result").innerText = Result;
+}
+</script>
+</body>
+</html>
